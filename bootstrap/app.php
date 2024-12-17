@@ -20,6 +20,9 @@ return Application::configure(basePath: dirname(__DIR__))
             Route::prefix('api/v2')->group(function () {
                 require __DIR__.'/../routes/api_v2.php';
             });
+            Route::prefix('api/v3')->group(function () {
+                require __DIR__.'/../routes/api_v3.php';
+            });
         }
     )
     ->withMiddleware(function (Middleware $middleware) {
