@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V3\CategoryController;
 use App\Http\Controllers\Api\V3\ProductController;
+use App\Http\Controllers\Api\V3\CommentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,9 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 Route::get('/products/category/{category}', [ProductController::class, 'showByCategory']);
+
+// muestr los comentarios de un producto
+Route::get('products/{productId}/comments', [CommentController::class, 'index']);
+
+// crea un comentario para un producto
+Route::post('products/{productId}/comments', [CommentController::class, 'store']);
